@@ -6,16 +6,15 @@ export default function(
   noResultsElement,
   resultListContainerElement,
   searchResultTemplateElement,
-  apiKey,
-  engineKey,
+  config,
   startIndex,
   queryString,
   callback
 ) {
   const searchResultsPromise = getJSONResults(
     `https://www.googleapis.com/customsearch/v1` +
-      `?key=${apiKey}` +
-      `&cx=${engineKey}` +
+      `?key=${config.apiKey}` +
+      `&cx=${config.engineKey}` +
       `&q=${queryString}&hl=en&start=${startIndex}`
   );
   searchResultsPromise

@@ -1,6 +1,6 @@
 {
   "name": "google-srp",
-  "version": "0.0.1",
+  "version": "0.0.66",
   "description": "Search Results Page plugin for Google Custom Search API",
   "main": "lib/index.js",
   "scripts": {

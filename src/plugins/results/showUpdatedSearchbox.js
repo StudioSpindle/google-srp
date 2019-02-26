@@ -3,7 +3,7 @@
  * @param query {object} the query
  */
 
-import elementExists from '../helpers/elementExists';
+import elementExists from '../../helpers/elementExists';
 
 export default function(query) {
   const searchBox = document.getElementById('search-knowledgebase');

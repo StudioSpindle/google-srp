@@ -1,5 +1,3 @@
-// TODO: refactor, this function typically shouldn't be dependent on another function
-
 /**
  * @desc Generates the results and appends them to the resultListContainer
  * @param response {Object} the response out of the XML HttpRequest
