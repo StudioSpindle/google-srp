@@ -15,8 +15,8 @@ $ npm install --save google-srp
 const googleSrp = require(google-srp);
 
 const srpSettings = {
-  "apiKey": process.env.GOOGLE_API_KEY,
-  "engineKey": process.env.GOOGLE_ENGINE,
+  "apiKey": [MY_GOOGLE_API_KEY],
+  "engineKey": [MY_GOOGLE_ENGINE],
 };
 
 googleSrp(srpSettings);
