@@ -1,3 +1,4 @@
+// TODO: the pagination in this file requires a settings file that shouldn't be here, refactor (check double elements)
 import settingsResults from '../results/settings-results.json';
 import settingsPagination from './settings-pagination.json';
 

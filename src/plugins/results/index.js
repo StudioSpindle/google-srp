@@ -1,3 +1,5 @@
+// TODO: the pagination in this file requires a settings file that shouldn't be here, refactor (see also pagination TODO in this file)
+import settingsPagination from '../pagination/settings-pagination.json';
 import settingsResults from './settings-results.json';
 
 import elementExists from '../../helpers/elementExists';
@@ -31,8 +33,8 @@ export default function(config) {
       resultListContainerElement.classList.add('search-result-list--fade-in');
       // TODO: decouple this from this initial result script
       if (config.enablePagination) {
-        const [paginationContainer] = document.getElementsByClassName(settingsResults.paginationContainerClassName);
-        generatePagination(response, paginationContainer, settingsResults.nextButtonClassName, settingsResults.previousButtonClassName, settingsResults.searchMetaClassName);
+        const [paginationContainer] = document.getElementsByClassName(settingsPagination.paginationContainerClassName);
+        generatePagination(response, paginationContainer, settingsPagination.nextButtonClassName, settingsPagination.previousButtonClassName, settingsPagination.searchMetaClassName);
       }
       showUpdatedSearchbox(queryString);
     });
