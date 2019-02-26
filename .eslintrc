@@ -1,0 +1,16 @@
+{
+  "env": {
+    "amd": true,
+    "es6": true
+  },
+  "plugins": ["prettier"],
+  "extends": ["prettier"],
+  "rules": {
+    "prettier/prettier": "error"
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "impliedStrict": true,
+    "sourceType": "module"
+  }
+}

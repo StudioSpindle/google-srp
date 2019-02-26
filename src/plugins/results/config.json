@@ -1,0 +1,9 @@
+{
+  "resultContainerClassName": "search-result-list",
+  "searchResultTemplateClassName": "search-result",
+  "noResultsClassName": "jsNoSearchResults",
+  "paginationContainerClassName": "pagination",
+  "nextButtonClassName": "pagination__button-next",
+  "previousButtonClassName": "pagination__button-previous",
+  "searchMetaClassName": "pagination-search-meta"
+}

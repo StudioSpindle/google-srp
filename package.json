@@ -1,0 +1,34 @@
+{
+  "name": "google-srp",
+  "version": "0.0.1",
+  "description": "Search Results Page plugin for Google Custom Search API",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel src -d lib",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:lint": "eslint $npm_package_javascriptFiles",
+    "prettier:check": "prettier --check $npm_package_javascriptFiles",
+    "prettier:fix": "prettier --write $npm_package_javascriptFiles",
+    "package": "npm run-script build && npm --no-git-tag-version version patch && npm publish"
+  },
+  "javascriptFiles": "./src/**/*.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/StudioSpindle/google-srp.git"
+  },
+  "author": "Remi Vledder",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/StudioSpindle/google-srp/issues"
+  },
+  "homepage": "https://github.com/StudioSpindle/google-srp#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.3",
+    "babel-plugin-inline-json-import": "^0.3.1",
+    "eslint": "^5.14.1",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "prettier": "^1.16.4"
+  }
+}
