@@ -27,9 +27,10 @@ googleSrp(srpSettings);
 ### Pagination
 
 ```node
-google-srp({
-    apiKey: [your-key-here],
-    engineKey: [your-engine-key-here],
-    pagination: true
-});
+const srpSettings = {
+    "apiKey": [your-key-here],
+    "engineKey": [your-engine-key-here],
+    "pagination": true
+};
+googleSrp(srpSettings);
 ```
