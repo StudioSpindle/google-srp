@@ -11,23 +11,25 @@ import showUpdatedSearchbox from './showUpdatedSearchbox';
 import generatePagination from '../pagination/generatePagination';
 
 export default function(config) {
-  const [noResultsElement] = document.getElementsByClassName(settingsResults.noResultsClassName);
+  const [notifyNoResultsElement] = document.getElementsByClassName(settingsResults.notifyNoResultsClassName);
   const [resultListContainerElement] = document.getElementsByClassName(settingsResults.resultContainerClassName);
   const [searchResultTemplateElement] = document.getElementsByClassName(settingsResults.searchResultTemplateClassName);
+  const [notifyBadRequestElement] = document.getElementsByClassName(settingsResults.notifyBadRequestClassName);
+
 
   const queryString = getParameterByName('search');
   if (queryString !== null && queryString !== '') {
-    if (elementExists(noResultsElement)) {
-      noResultsElement.style.display = 'none';
+    if (elementExists(notifyNoResultsElement)) {
+      notifyNoResultsElement.style.display = 'none';
     }
     const urlParamIndex = window.location.hash.substring(1);
     const startIndex = urlParamIndex !== '' ? urlParamIndex : 1;
 
-    loadResults(noResultsElement, resultListContainerElement, searchResultTemplateElement, config, startIndex, queryString, function(response) {
+    loadResults(notifyNoResultsElement, notifyBadRequestElement, resultListContainerElement, searchResultTemplateElement, config, startIndex, queryString, function(response) {
       showNumberOfResults(response);
       generateResults(response, resultListContainerElement, searchResultTemplateElement);
       resultListContainerElement.classList.add('search-result-list--fade-in');
-      // TODO: decouple this from this inital result script
+      // TODO: decouple this from this initial result script
       if (config.enablePagination) {
         const [paginationContainer] = document.getElementsByClassName(settingsResults.paginationContainerClassName);
         generatePagination(response, paginationContainer, settingsResults.nextButtonClassName, settingsResults.previousButtonClassName, settingsResults.searchMetaClassName);

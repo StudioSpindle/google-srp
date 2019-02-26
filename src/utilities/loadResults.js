@@ -3,7 +3,8 @@ import elementExists from '../helpers/elementExists';
 import createNoResultMessage from './createNoResultMessage';
 
 export default function(
-  noResultsElement,
+  notifyNoResultsElement,
+  notifyBadRequestElement,
   resultListContainerElement,
   searchResultTemplateElement,
   config,
@@ -21,16 +22,19 @@ export default function(
     .then(function(response) {
       const zeroItems = typeof response.items === 'undefined';
       if (zeroItems) {
-        if (elementExists(noResultsElement)) {
+        if (elementExists(notifyNoResultsElement)) {
           const { searchTerms } = response.queries.request[0];
-          noResultsElement.innerHTML = createNoResultMessage(searchTerms);
-          noResultsElement.style.display = 'flex';
+          notifyNoResultsElement.innerHTML = createNoResultMessage(searchTerms);
+          notifyNoResultsElement.style.display = 'flex';
         }
         return;
       }
       callback(response);
     })
     .catch(function(e) {
+      if(elementExists(notifyBadRequestElement)) {
+        notifyBadRequestElement.style.display = 'flex';
+      }
       console.info(e);
     });
 }

@@ -17,6 +17,8 @@ export default function(url) {
       if (this.readyState === this.DONE) {
         if (this.status === 200) {
           resolve(JSON.parse(this.responseText));
+        } else if (this.status === 400) {
+          reject('The API url, key or engine key is incorrect.');
         } else {
           reject(this.statusText);
         }

@@ -27,10 +27,10 @@ Then in the HTML, add the following markup:
 ```html
 <section>
     <h1>Search results <span class="number-of-results"></span></h1>
-    <div class="jsNoSearchResults">
+    <div class="search-notify-no-results">
         <p>Nothing found, please search for something else.</p>
     </div>
-    <div class="js-search-google-403" style="display:none">
+    <div class="search-notify-bad-request" style="display:none">
         <p>Currently there is a problem loading the google script. Please come back later.</p>
     </div>
 </section>

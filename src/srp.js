@@ -9,11 +9,7 @@ export default function(config) {
     enablePagination: config.pagination || false
   };
 
-  results(appConfig, function(response) {
-    if (config.enablePagination) {
-
-    }
-  });
+  results(appConfig);
 
   if (config.enablePagination) {
     pagination(appConfig);

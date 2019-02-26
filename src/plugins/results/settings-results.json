@@ -1,5 +1,6 @@
 {
   "resultContainerClassName": "search-result-list",
   "searchResultTemplateClassName": "search-result",
-  "noResultsClassName": "jsNoSearchResults"
+  "notifyNoResultsClassName": "search-notify-no-results",
+  "notifyBadRequestClassName": "search-notify-bad-request"
 }

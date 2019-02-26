@@ -10,10 +10,11 @@ import generatePagination from './generatePagination';
 import removeSearchResultListItems from './removeSearchResultListItems';
 
 export default function(config) {
-  const [noResultsElement] = document.getElementsByClassName(settingsResults.noResultsClassName);
+  const [notifyNoResultsElement] = document.getElementsByClassName(settingsResults.notifyNoResultsClassName);
   const [resultListContainerElement] = document.getElementsByClassName(settingsResults.resultContainerClassName);
   const [searchResultTemplateElement] = document.getElementsByClassName(settingsResults.searchResultTemplateClassName);
   const [paginationContainer] = document.getElementsByClassName(settingsPagination.paginationContainerClassName);
+  const [notifyBadRequestElement] = document.getElementsByClassName(settingsResults.notifyBadRequestClassName);
 
   if (elementExists(paginationContainer)) {
     paginationContainer.addEventListener(
@@ -26,7 +27,7 @@ export default function(config) {
           const newStartIndex = e.target.dataset.goToPageIndex;
           resultListContainerElement.classList.remove('search-result-list--fade-in');
 
-          loadResults(noResultsElement, resultListContainerElement, searchResultTemplateElement, config, newStartIndex, queryString, function(response) {
+          loadResults(notifyNoResultsElement, notifyBadRequestElement, resultListContainerElement, searchResultTemplateElement, config, newStartIndex, queryString, function(response) {
             removeSearchResultListItems(resultListContainerElement);
             setTimeout(function() {
               generateResults(response, resultListContainerElement, searchResultTemplateElement);
