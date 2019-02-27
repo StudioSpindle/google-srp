@@ -1,4 +1,4 @@
-# google-srp
+# google-srp :construction: pre-alpha
 Search Results Page plugin for Google Custom Search API
 
 ## Installation
