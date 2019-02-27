@@ -35,6 +35,16 @@ Then in the HTML, add the following markup:
 
 ```html
 <section>
+    <form action="/" class="search" method="GET">
+        <section class="search-meta">
+            <label class="is-visually-hidden" for="search-website">Search our website</label>
+            <input placeholder="Search our website"
+                   id="search-website"
+                   name="search"
+                   type="search" />
+            <button class="button button-ui" type="submit" value="Submit">Search</button>
+        </section>
+    </form>
     <h1>Search results <span class="number-of-results"></span></h1>
     <div class="search-notify-no-results">
         <p>Nothing found, please search for something else.</p>
@@ -43,7 +53,7 @@ Then in the HTML, add the following markup:
         <p>Currently there is a problem loading the google script. Please come back later.</p>
     </div>
 </section>
-<ul class="search-result-list list-ui">
+<ul class="search-result-list">
     <li class="search-result" style="display: none">
         <h2 class="search-result__title"></h2>
         <span class="search-result__url"></span>
@@ -66,7 +76,8 @@ googleSrp.searchResultsPage(srpSettings);
 ```
 
 ```html
-<ul class="pagination list-ui" style="display:none;">
+<!-- add this below the search-result-list list HTML markup above -->
+<ul class="pagination" style="display:none;">
     <li><button class="pagination__button pagination__button-previous" style="display:none;">&laquo; Previous page</button></li>
     <li class="pagination-search-meta">
         <p>Showing result <strong class="search-meta--count">0</strong> to <strong class="search-meta--total">0</strong></p>
