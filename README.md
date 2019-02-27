@@ -10,7 +10,7 @@ Prior to using this package [create a custom search engine](https://developers.g
 
 This is a pre-alpha release. No formal testing has been applied yet.
 
-## Installation
+## :rocket: Installation
 
 ### NPM
 
@@ -62,7 +62,7 @@ Then in the HTML, add the following markup:
 </ul>
 ```
 
-## Plugins
+## :electric_plug: Plugins
 
 ### Pagination
 
@@ -86,49 +86,6 @@ googleSrp.searchResultsPage(srpSettings);
 </ul>
 ```
 
-## Code
+## :fire: Contribute
 
-### ES6
-
-A progressive approach is used for JS. For example the ES6 syntax together with *Ecma Script Modules* (ESM) is preferred over *CommonJS* (CJS).
-
-This does require an additional build step using babel, and mocha will use the [esm](https://www.npmjs.com/package/esm) package. 
-
-Several advantages of ESM over CJS:
-- Tier browsers support it
-- Makes treeshaking possible
-
-Source: [the-state-of-javascript-modules](https://medium.com/webpack/the-state-of-javascript-modules-4636d1774358) - by J. Ewald
-
-This means that modules are defined using: 
-
-ESM format example :+1::
-```javascript
-export default function() {}
-```
-
-or
-
-```javascript
-const myFunction = function() {};
-export default myFunction;
-```
-
-And not the CommonJS (CJS) format example :-1:: 
-```javascript
-modules.exports = value;
-```
-
-### Code formatting
-
-To check formatting use (used on CI): 
-
-```bash
-$ npm run prettier:check
-```
-
-To automatically fix formatting use:
-
-```bash
-$ npm run prettier:fix
-```
+[See coding guidelines](CODE-GUIDELINES.md)
