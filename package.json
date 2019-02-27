@@ -1,7 +1,8 @@
 {
   "name": "google-srp",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Search Results Page plugin for Google Custom Search API",
+  "keywords": ["google-custom-search-api", "search-results-page", "search", "ES6"],
   "main": "lib/index.js",
   "scripts": {
     "build": "babel src -d lib",
@@ -16,7 +17,10 @@
     "type": "git",
     "url": "git+https://github.com/StudioSpindle/google-srp.git"
   },
-  "author": "Remi Vledder",
+  "author": {
+    "name": "Remi Vledder",
+    "twitter": "@remivledder"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/StudioSpindle/google-srp/issues"
