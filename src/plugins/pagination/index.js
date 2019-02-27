@@ -10,7 +10,7 @@ import loadResults from '../../utilities/loadResults';
 import generatePagination from './generatePagination';
 import removeSearchResultListItems from './removeSearchResultListItems';
 
-export default function(config) {
+export default function(config, queryString) {
   const [notifyNoResultsElement] = document.getElementsByClassName(settingsResults.notifyNoResultsClassName);
   const [resultListContainerElement] = document.getElementsByClassName(settingsResults.resultContainerClassName);
   const [searchResultTemplateElement] = document.getElementsByClassName(settingsResults.searchResultTemplateClassName);

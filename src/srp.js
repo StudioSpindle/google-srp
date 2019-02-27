@@ -1,6 +1,7 @@
 
 import results from './plugins/results/index';
 import pagination from './plugins/pagination/index';
+import getParameterByName from './helpers/getParameterByName';
 
 export default function(config) {
   const appConfig = {
@@ -9,9 +10,11 @@ export default function(config) {
     enablePagination: config.pagination || false
   };
 
-  results(appConfig);
+  const queryString = getParameterByName('search');
 
-  if (config.enablePagination) {
-    pagination(appConfig);
+  results(appConfig, queryString);
+
+  if (appConfig.enablePagination) {
+    pagination(appConfig, queryString);
   }
 }
