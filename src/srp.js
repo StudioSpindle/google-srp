@@ -9,7 +9,7 @@ export default function(config) {
     enablePagination: config.pagination || false
   };
 
-  const queryString = getParameterByName('search');
+  const queryString = getParameterByName('search', window.location.href);
 
   results(appConfig, queryString);
 
