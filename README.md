@@ -3,8 +3,9 @@ Search Results Page plugin for the Google [Custom Search JSON API](https://devel
 
 Prior to using this package [create a custom search engine](https://developers.google.com/custom-search/docs/tutorial/creatingcse).
 
-- **MY_GOOGLE_API_KEY**: In the [gcse control panel](https://cse.google.com/cse/all) copy your *search engine id* (under the 'Basics' tab).
-- **MY_GOOGLE_ENGINE**: create a API credential as described on [developers.google.com](https://developers.google.com/custom-search/v1/introduction).
+When the engine is created lookup the engine key and create a API key:  
+- **MY_GOOGLE_ENGINE**: In the [gcse control panel](https://cse.google.com/cse/all) copy your *search engine id* (under the 'Basics' tab).
+- **MY_GOOGLE_API_KEY**: create a API credential as described on [developers.google.com](https://developers.google.com/custom-search/v1/introduction).
 
 ## :construction: pre-alpha
 
