@@ -3,7 +3,6 @@ import settingsPagination from '../pagination/settings-pagination.json';
 import settingsResults from './settings-results.json';
 
 import elementExists from '../../helpers/elementExists';
-import getParameterByName from '../../helpers/getParameterByName';
 
 import generateResults from '../../utilities/generateResults';
 import loadResults from '../../utilities/loadResults';
@@ -13,10 +12,18 @@ import showUpdatedSearchbox from './showUpdatedSearchbox';
 import generatePagination from '../pagination/generatePagination';
 
 export default function(config, queryString) {
-  const [notifyNoResultsElement] = document.getElementsByClassName(settingsResults.notifyNoResultsClassName);
-  const [resultListContainerElement] = document.getElementsByClassName(settingsResults.resultContainerClassName);
-  const [searchResultTemplateElement] = document.getElementsByClassName(settingsResults.searchResultTemplateClassName);
-  const [notifyBadRequestElement] = document.getElementsByClassName(settingsResults.notifyBadRequestClassName);
+  const [notifyNoResultsElement] = document.getElementsByClassName(
+    settingsResults.notifyNoResultsClassName
+  );
+  const [resultListContainerElement] = document.getElementsByClassName(
+    settingsResults.resultContainerClassName
+  );
+  const [searchResultTemplateElement] = document.getElementsByClassName(
+    settingsResults.searchResultTemplateClassName
+  );
+  const [notifyBadRequestElement] = document.getElementsByClassName(
+    settingsResults.notifyBadRequestClassName
+  );
 
   if (queryString !== null && queryString !== '') {
     if (elementExists(notifyNoResultsElement)) {
@@ -25,17 +32,37 @@ export default function(config, queryString) {
     const urlParamIndex = window.location.hash.substring(1);
     const startIndex = urlParamIndex !== '' ? urlParamIndex : 1;
 
-    loadResults(notifyNoResultsElement, notifyBadRequestElement, resultListContainerElement, searchResultTemplateElement, config, startIndex, queryString, function(response) {
-      showNumberOfResults(response);
-      generateResults(response, resultListContainerElement, searchResultTemplateElement);
-      resultListContainerElement.classList.add('search-result-list--fade-in');
-      // TODO: decouple this from this initial result script
-      if (config.enablePagination) {
-        const [paginationContainer] = document.getElementsByClassName(settingsPagination.paginationContainerClassName);
-        generatePagination(response, paginationContainer, settingsPagination.nextButtonClassName, settingsPagination.previousButtonClassName, settingsPagination.searchMetaClassName);
+    loadResults(
+      notifyNoResultsElement,
+      notifyBadRequestElement,
+      resultListContainerElement,
+      searchResultTemplateElement,
+      config,
+      startIndex,
+      queryString,
+      function(response) {
+        showNumberOfResults(response);
+        generateResults(
+          response,
+          resultListContainerElement,
+          searchResultTemplateElement
+        );
+        resultListContainerElement.classList.add('search-result-list--fade-in');
+        // TODO: decouple this from this initial result script
+        if (config.enablePagination) {
+          const [paginationContainer] = document.getElementsByClassName(
+            settingsPagination.paginationContainerClassName
+          );
+          generatePagination(
+            response,
+            paginationContainer,
+            settingsPagination.nextButtonClassName,
+            settingsPagination.previousButtonClassName,
+            settingsPagination.searchMetaClassName
+          );
+        }
+        showUpdatedSearchbox(queryString);
       }
-      showUpdatedSearchbox(queryString);
-    });
-
+    );
   }
-};
+}

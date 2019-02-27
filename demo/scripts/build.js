@@ -1,23 +1,23 @@
-
 console.log('Creating bundle...');
 
-var fs = require("fs");
-var path = require("path");
-var browserify = require("browserify");
+var fs = require('fs');
+var path = require('path');
+var browserify = require('browserify');
 
-var buildDir = path.join(__dirname, "../build");
+var buildDir = path.join(__dirname, '../build');
 
 try {
-  fs.mkdirSync(buildDir)
+  fs.mkdirSync(buildDir);
 } catch (e) {
   /* ignore error */
 }
 
-browserify("./main.js", {
+browserify('./main.js', {
   transform: [
-    ["babelify", {"presets":["@babel/preset-env"]}],
-    ["localenvify",{}],
-    ["uglifyify",{}]
-  ]})
+    ['babelify', { presets: ['@babel/preset-env'] }],
+    ['localenvify', {}],
+    ['uglifyify', {}]
+  ]
+})
   .bundle()
-  .pipe(fs.createWriteStream(buildDir + "/bundle.js"));
+  .pipe(fs.createWriteStream(buildDir + '/bundle.js'));

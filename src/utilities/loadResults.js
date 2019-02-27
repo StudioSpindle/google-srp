@@ -32,7 +32,7 @@ export default function(
       callback(response);
     })
     .catch(function(e) {
-      if(elementExists(notifyBadRequestElement)) {
+      if (elementExists(notifyBadRequestElement)) {
         notifyBadRequestElement.style.display = 'flex';
       }
       console.info(e);

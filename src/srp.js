@@ -1,4 +1,3 @@
-
 import results from './plugins/results/index';
 import pagination from './plugins/pagination/index';
 import getParameterByName from './helpers/getParameterByName';

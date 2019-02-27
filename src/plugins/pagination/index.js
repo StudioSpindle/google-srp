@@ -11,11 +11,21 @@ import generatePagination from './generatePagination';
 import removeSearchResultListItems from './removeSearchResultListItems';
 
 export default function(config, queryString) {
-  const [notifyNoResultsElement] = document.getElementsByClassName(settingsResults.notifyNoResultsClassName);
-  const [resultListContainerElement] = document.getElementsByClassName(settingsResults.resultContainerClassName);
-  const [searchResultTemplateElement] = document.getElementsByClassName(settingsResults.searchResultTemplateClassName);
-  const [paginationContainer] = document.getElementsByClassName(settingsPagination.paginationContainerClassName);
-  const [notifyBadRequestElement] = document.getElementsByClassName(settingsResults.notifyBadRequestClassName);
+  const [notifyNoResultsElement] = document.getElementsByClassName(
+    settingsResults.notifyNoResultsClassName
+  );
+  const [resultListContainerElement] = document.getElementsByClassName(
+    settingsResults.resultContainerClassName
+  );
+  const [searchResultTemplateElement] = document.getElementsByClassName(
+    settingsResults.searchResultTemplateClassName
+  );
+  const [paginationContainer] = document.getElementsByClassName(
+    settingsPagination.paginationContainerClassName
+  );
+  const [notifyBadRequestElement] = document.getElementsByClassName(
+    settingsResults.notifyBadRequestClassName
+  );
 
   if (elementExists(paginationContainer)) {
     paginationContainer.addEventListener(
@@ -23,25 +33,54 @@ export default function(config, queryString) {
       function(e) {
         if (
           e.target.classList.contains(settingsPagination.nextButtonClassName) ||
-          e.target.classList.contains(settingsPagination.previousButtonClassName)
+          e.target.classList.contains(
+            settingsPagination.previousButtonClassName
+          )
         ) {
           const newStartIndex = e.target.dataset.goToPageIndex;
-          resultListContainerElement.classList.remove('search-result-list--fade-in');
+          resultListContainerElement.classList.remove(
+            'search-result-list--fade-in'
+          );
 
-          loadResults(notifyNoResultsElement, notifyBadRequestElement, resultListContainerElement, searchResultTemplateElement, config, newStartIndex, queryString, function(response) {
-            removeSearchResultListItems(resultListContainerElement);
-            setTimeout(function() {
-              generateResults(response, resultListContainerElement, searchResultTemplateElement);
-              resultListContainerElement.classList.add('search-result-list--fade-in');
-              generatePagination(response, paginationContainer, settingsPagination.nextButtonClassName, settingsPagination.previousButtonClassName, settingsPagination.searchMetaClassName);
-            }, 250);
-            window.location.hash = newStartIndex;
-          });
+          loadResults(
+            notifyNoResultsElement,
+            notifyBadRequestElement,
+            resultListContainerElement,
+            searchResultTemplateElement,
+            config,
+            newStartIndex,
+            queryString,
+            function(response) {
+              removeSearchResultListItems(resultListContainerElement);
+              setTimeout(function() {
+                generateResults(
+                  response,
+                  resultListContainerElement,
+                  searchResultTemplateElement
+                );
+                resultListContainerElement.classList.add(
+                  'search-result-list--fade-in'
+                );
+                generatePagination(
+                  response,
+                  paginationContainer,
+                  settingsPagination.nextButtonClassName,
+                  settingsPagination.previousButtonClassName,
+                  settingsPagination.searchMetaClassName
+                );
+              }, 250);
+              window.location.hash = newStartIndex;
+            }
+          );
         }
       },
-      true,
+      true
     );
   } else {
-    console.info(`There is no pagination container present with ${settingsPagination.paginationContainerClassName}`);
+    console.info(
+      `There is no pagination container present with ${
+        settingsPagination.paginationContainerClassName
+      }`
+    );
   }
-};
+}
