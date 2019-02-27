@@ -1,5 +1,14 @@
-# google-srp :construction: pre-alpha
-Search Results Page plugin for Google Custom Search API
+# google-srp 
+Search Results Page plugin for the Google [Custom Search JSON API](https://developers.google.com/custom-search/v1/overview).
+
+Prior to using this package [create a custom search engine](https://developers.google.com/custom-search/docs/tutorial/creatingcse).
+
+- **MY_GOOGLE_API_KEY**: In the [gcse control panel](https://cse.google.com/cse/all) copy your *search engine id* (under the 'Basics' tab).
+- **MY_GOOGLE_ENGINE**: create a API credential as described on [developers.google.com](https://developers.google.com/custom-search/v1/introduction).
+
+## :construction: pre-alpha
+
+This is a pre-alpha release. No formal testing has been applied yet.
 
 ## Installation
 
