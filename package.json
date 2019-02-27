@@ -1,8 +1,13 @@
 {
   "name": "google-srp",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Search Results Page plugin for Google Custom Search API",
-  "keywords": ["google-custom-search-api", "search-results-page", "search", "ES6"],
+  "keywords": [
+    "google-custom-search-api",
+    "search-results-page",
+    "search",
+    "ES6"
+  ],
   "main": "lib/index.js",
   "scripts": {
     "build": "babel src -d lib",
