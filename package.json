@@ -12,12 +12,12 @@
   "scripts": {
     "build": "babel src -d lib",
     "test": "mocha -r esm",
-    "test:lint": "eslint $npm_package_javascriptFiles",
-    "prettier:check": "prettier --check $npm_package_javascriptFiles",
-    "prettier:fix": "prettier --write $npm_package_javascriptFiles",
+    "test:lint": "eslint --fix './src/**/*.js'",
+    "prettier:check": "prettier --check './src/**/*.js'",
+    "prettier:fix": "prettier --write './src/**/*.js'",
+    "prepackage": "npm test",
     "package": "npm run-script build && npm --no-git-tag-version version patch && npm publish"
   },
-  "javascriptFiles": "./src/**/*.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/StudioSpindle/google-srp.git"
