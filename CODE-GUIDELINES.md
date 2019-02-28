@@ -26,6 +26,7 @@ This does require an additional build step using babel, and mocha will use the [
 Several advantages of ESM over CJS:
 - Tier browsers support it
 - Makes treeshaking possible
+- Will become the standard
 
 Source: [the-state-of-javascript-modules](https://medium.com/webpack/the-state-of-javascript-modules-4636d1774358) - by J. Ewald
 
