@@ -21,7 +21,7 @@ $ npm install --save google-srp
 ## Usage
 
 ```node
-const googleSrp = require(google-srp);
+const googleSrp = require('google-srp');
 
 const srpSettings = {
   "apiKey": [MY_GOOGLE_API_KEY],
